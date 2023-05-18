@@ -12,6 +12,7 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AccessLevel;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.experimental.FieldDefaults;
 
 import java.math.BigInteger;
@@ -20,6 +21,7 @@ import java.time.LocalDateTime;
 @Getter
 @Entity
 @Table(name = "check_list_item")
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class CheckListItemEntity {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)

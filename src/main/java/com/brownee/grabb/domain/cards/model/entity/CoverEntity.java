@@ -9,6 +9,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.AccessLevel;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.experimental.FieldDefaults;
 
 import java.math.BigInteger;
@@ -16,6 +17,7 @@ import java.math.BigInteger;
 @Getter
 @Entity
 @Table(name = "cover")
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class CoverEntity {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)

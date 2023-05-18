@@ -1,16 +1,19 @@
-package com.brownee.grabb.domain.members.model;
+package com.brownee.grabb.domain.cards.model;
 
+import com.brownee.grabb.domain.cards.model.Card;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.experimental.FieldDefaults;
 
 import java.math.BigInteger;
+import java.util.List;
 
 @Getter
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class Member {
+public class CardList {
     BigInteger id;
     String name;
-    String email;
+    int position;
+    List<Card> cards;
 
 }

@@ -1,6 +1,12 @@
 package com.brownee.grabb.common.enums;
 
 public class CommonEnum {
+    public enum PricingPlan {
+        FREE, STANDARD, PREMIUM, ENTERPRISE
+    }
+    public enum WorkSpaceType {
+        PRIVATE, PUBLIC
+    }
 
     public enum BoardVisibility {
         WORKSPACE, PRIVATE, PUBLIC

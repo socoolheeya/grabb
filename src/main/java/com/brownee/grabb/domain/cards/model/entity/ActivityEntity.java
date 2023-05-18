@@ -13,6 +13,7 @@ import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.AccessLevel;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.experimental.FieldDefaults;
 
 import java.math.BigInteger;
@@ -20,6 +21,7 @@ import java.math.BigInteger;
 @Getter
 @Entity
 @Table(name = "activity")
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class ActivityEntity {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
