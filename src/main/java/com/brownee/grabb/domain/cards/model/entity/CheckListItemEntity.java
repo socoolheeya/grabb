@@ -25,7 +25,7 @@ import java.time.LocalDateTime;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class CheckListItemEntity {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "check_list_item_id")
+    @Column(name = "check_list_item_id", columnDefinition = "bigint(10)")
     BigInteger id;
 
     @Column(name = "name")

@@ -1,6 +1,5 @@
 package com.brownee.grabb.domain.cards.model.entity;
 
-import com.brownee.grabb.domain.cards.model.CheckListItem;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -27,12 +26,12 @@ import java.util.List;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class CheckListEntity {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "check_list_id")
+    @Column(name = "check_list_id", columnDefinition = "bigint(10)")
     BigInteger id;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "card_id")
-    CardEntity cardEntity;
+    CardEntity card;
 
     @OneToMany(mappedBy = "checkList")
     List<CheckListItemEntity> checkListItems = new ArrayList<>();

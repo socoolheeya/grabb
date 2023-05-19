@@ -1,7 +1,7 @@
 package com.brownee.grabb.domain.cards.model.entity;
 
-import com.brownee.grabb.domain.boards.model.entity.BoardEntity;
 import com.brownee.grabb.domain.members.model.entity.MemberEntity;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -11,6 +11,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -29,7 +30,7 @@ import java.util.List;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class CardEntity {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "card_id")
+    @Column(name = "card_id", columnDefinition = "bigint(10)")
     BigInteger id;
 
     @Column(name = "title")
@@ -43,19 +44,23 @@ public class CardEntity {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "card_list_id")
-    CardListEntity cardList;
+    CardListEntity cardLists;
 
-    @OneToMany(mappedBy = "card")
+    @OneToMany(mappedBy = "card", cascade = CascadeType.ALL)
     List<ActivityEntity> activities = new ArrayList<>();
 
-    @OneToMany(mappedBy = "card")
+    @OneToMany(mappedBy = "card", cascade = CascadeType.ALL)
     List<LabelEntity> labels = new ArrayList<>();
 
-    @OneToMany(mappedBy = "card")
+    @OneToMany(mappedBy = "card", cascade = CascadeType.ALL)
     List<MemberEntity> members = new ArrayList<>();
 
     @OneToMany(mappedBy = "card")
     List<CheckListEntity> checkLists = new ArrayList<>();
+
+    @OneToOne(mappedBy = "card")
+    CoverEntity cover;
+
 
 
 

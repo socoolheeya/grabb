@@ -3,9 +3,12 @@ package com.brownee.grabb.domain.cards.model.entity;
 import com.brownee.grabb.common.enums.CommonEnum;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -21,7 +24,7 @@ import java.math.BigInteger;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class CoverEntity {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "cover_id")
+    @Column(name = "cover_id", columnDefinition = "bigint(10)")
     BigInteger id;
 
     @Column(name = "size")
@@ -35,6 +38,10 @@ public class CoverEntity {
 
     @Column(name = "photo_url")
     String photoUrl;
+
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "card_id")
+    CardEntity card;
 
 
 }

@@ -25,7 +25,7 @@ import java.time.LocalDateTime;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class WorkSpaceEntity extends BaseTimeEntity {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "work_space_id")
+    @Column(name = "work_space_id", columnDefinition = "bigint(10)")
     BigInteger id;
 
     @Column(name = "name")

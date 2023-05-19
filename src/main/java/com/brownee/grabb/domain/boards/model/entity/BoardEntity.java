@@ -1,6 +1,7 @@
 package com.brownee.grabb.domain.boards.model.entity;
 
 import com.brownee.grabb.common.enums.CommonEnum;
+import com.brownee.grabb.common.model.BaseTimeEntity;
 import com.brownee.grabb.domain.cards.model.Card;
 import com.brownee.grabb.domain.cards.model.CardList;
 import com.brownee.grabb.domain.cards.model.entity.CardEntity;
@@ -19,6 +20,8 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.experimental.FieldDefaults;
+import org.springframework.data.annotation.CreatedBy;
+import org.springframework.data.annotation.LastModifiedBy;
 
 import java.math.BigInteger;
 import java.util.ArrayList;
@@ -29,9 +32,9 @@ import java.util.List;
 @Table(name = "board")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class BoardEntity {
+public class BoardEntity extends BaseTimeEntity {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "board_id")
+    @Column(name = "board_id", columnDefinition = "bigint(10)")
     BigInteger id;
 
     @Column(name = "title")
@@ -45,6 +48,14 @@ public class BoardEntity {
     @Enumerated(EnumType.STRING)
     CommonEnum.BoardStatus status;
 
+    @CreatedBy
+    @Column(name = "created_by", updatable = false)
+    String createdBy;
+
+    @LastModifiedBy
+    @Column(name = "updated_by")
+    String updatedBy;
+
     @OneToMany(mappedBy = "board")
     List<CardListEntity> cardLists = new ArrayList<>();
 
@@ -56,4 +67,5 @@ public class BoardEntity {
         this.status = status;
         this.cardLists = cardLists;
     }
+
 }

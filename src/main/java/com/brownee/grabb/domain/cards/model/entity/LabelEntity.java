@@ -23,14 +23,17 @@ import java.math.BigInteger;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class LabelEntity {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "label_id")
+    @Column(name = "label_id", columnDefinition = "bigint(10)")
     BigInteger id;
+
     @Column(name = "title")
     String title;
+
     @Column(name = "color")
     String color;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "card_id")
-    CardEntity cardEntity;
+    CardEntity card;
 
 }

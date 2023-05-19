@@ -3,6 +3,7 @@ package com.brownee.grabb.domain.pricing.model.entity;
 import com.brownee.grabb.common.enums.CommonEnum;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -22,10 +23,10 @@ import java.math.BigInteger;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class PricingEntity {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "pricing_id")
+    @Column(name = "pricing_id", columnDefinition = "bigint(10)")
     BigInteger id;
 
-    @Enumerated
+    @Enumerated(EnumType.STRING)
     @Column(name = "pricing_plan")
     CommonEnum.PricingPlan pricingPlan;
 

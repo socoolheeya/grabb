@@ -29,8 +29,8 @@ import java.math.BigInteger;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class MemberEntity extends BaseTimeEntity {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "member_id")
-    BigInteger id;
+    @Column(name = "member_id", columnDefinition = "bigint(10)")
+    BigInteger memberId;
 
     @Column(name = "name")
     String name;
@@ -52,5 +52,5 @@ public class MemberEntity extends BaseTimeEntity {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "card_id")
-    CardEntity cardEntity;
+    CardEntity card;
 }
