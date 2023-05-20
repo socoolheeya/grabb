@@ -2,9 +2,6 @@ package com.brownee.grabb.domain.boards.model.entity;
 
 import com.brownee.grabb.common.enums.CommonEnum;
 import com.brownee.grabb.common.model.BaseTimeEntity;
-import com.brownee.grabb.domain.cards.model.Card;
-import com.brownee.grabb.domain.cards.model.CardList;
-import com.brownee.grabb.domain.cards.model.entity.CardEntity;
 import com.brownee.grabb.domain.cards.model.entity.CardListEntity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

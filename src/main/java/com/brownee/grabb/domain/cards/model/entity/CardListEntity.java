@@ -1,7 +1,6 @@
 package com.brownee.grabb.domain.cards.model.entity;
 
 import com.brownee.grabb.domain.boards.model.entity.BoardEntity;
-import com.brownee.grabb.domain.cards.model.Card;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;

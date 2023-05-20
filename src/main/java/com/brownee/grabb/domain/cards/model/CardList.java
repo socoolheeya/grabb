@@ -1,6 +1,5 @@
 package com.brownee.grabb.domain.cards.model;
 
-import com.brownee.grabb.domain.cards.model.Card;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.experimental.FieldDefaults;

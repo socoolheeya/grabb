@@ -1,6 +1,5 @@
 package com.brownee.grabb.common.model.errors;
 
-import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
