@@ -1,4 +1,4 @@
-package com.brownee.grabb.common.model;
+package com.brownee.grabb.common.exception;
 
 public class GrabbUnAuthorizationException extends RuntimeException {
         public GrabbUnAuthorizationException() {

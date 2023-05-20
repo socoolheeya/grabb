@@ -1,7 +1,7 @@
 package com.brownee.grabb.common.handlers;
 
-import com.brownee.grabb.common.model.GrabbBadRequestException;
-import com.brownee.grabb.common.model.GrabbUnAuthorizationException;
+import com.brownee.grabb.common.exception.GrabbBadRequestException;
+import com.brownee.grabb.common.exception.GrabbUnAuthorizationException;
 import com.brownee.grabb.common.model.errors.GrabbError;
 import com.brownee.grabb.common.model.errors.GrabbErrorEnum;
 import com.brownee.grabb.common.model.errors.GrabbValidationError;
