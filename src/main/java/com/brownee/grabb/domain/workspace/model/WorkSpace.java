@@ -1,7 +1,13 @@
 package com.brownee.grabb.domain.workspace.model;
 
 import com.brownee.grabb.common.enums.CommonEnum;
+import com.brownee.grabb.domain.workspace.model.entity.WorkSpaceEntity;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import jakarta.persistence.Column;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
@@ -21,6 +27,7 @@ public class WorkSpace {
 
     String shortName;
 
+    @Enumerated(EnumType.STRING)
     CommonEnum.WorkSpaceType type;
 
     String url;
@@ -31,14 +38,17 @@ public class WorkSpace {
 
     String logoUrl;
 
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss", timezone = "Asia/Seoul")
     LocalDateTime trialStartedAt;
 
     String createdBy;
 
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss", timezone = "Asia/Seoul")
     LocalDateTime createdAt;
 
     String updatedBy;
 
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss", timezone = "Asia/Seoul")
     LocalDateTime updatedAt;
 
     @Builder
@@ -56,5 +66,19 @@ public class WorkSpace {
         this.createdAt = createdAt;
         this.updatedBy = updatedBy;
         this.updatedAt = updatedAt;
+    }
+
+    public static WorkSpaceEntity toEntity(WorkSpace workSpace) {
+        return WorkSpaceEntity.builder()
+                .id(workSpace.getId())
+                .name(workSpace.getName())
+                .shortName(workSpace.getShortName())
+                .type(workSpace.getType())
+                .url(workSpace.getUrl())
+                .logoUrl(workSpace.getLogoUrl())
+                .webSite(workSpace.getWebSite())
+                .description(workSpace.getDescription())
+                .trialStartedAt(workSpace.getTrialStartedAt())
+                .build();
     }
 }

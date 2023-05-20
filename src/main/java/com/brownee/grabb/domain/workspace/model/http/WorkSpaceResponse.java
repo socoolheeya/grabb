@@ -11,6 +11,13 @@ import lombok.experimental.UtilityClass;
 public class WorkSpaceResponse {
 
     @Getter
+    @NoArgsConstructor
+    @AllArgsConstructor
+    public static class Search {
+        WorkSpace workSpace;
+    }
+
+    @Getter
     @Builder
     @NoArgsConstructor
     @AllArgsConstructor

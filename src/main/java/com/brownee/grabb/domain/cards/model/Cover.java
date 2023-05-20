@@ -10,6 +10,7 @@ import lombok.experimental.FieldDefaults;
 public class Cover {
     CommonEnum.CoverSize size;
     String color;
+    String brightness;
     String photoUrl;
 
 }

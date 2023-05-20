@@ -5,6 +5,8 @@ import com.brownee.grabb.common.model.BaseTimeEntity;
 import com.brownee.grabb.domain.workspace.model.WorkSpace;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -34,6 +36,7 @@ public class WorkSpaceEntity extends BaseTimeEntity {
     @Column(name = "short_name")
     String shortName;
 
+    @Enumerated(EnumType.STRING)
     @Column(name = "type")
     CommonEnum.WorkSpaceType type;
 
@@ -79,9 +82,15 @@ public class WorkSpaceEntity extends BaseTimeEntity {
                 .name(entity.getName())
                 .shortName(entity.getShortName())
                 .url(entity.getUrl())
+                .type(entity.getType())
                 .logoUrl(entity.getLogoUrl())
                 .webSite(entity.getWebSite())
                 .description(entity.getDescription())
+                .trialStartedAt(entity.getTrialStartedAt())
+                .createdAt(entity.getCreatedAt())
+                .createdBy(entity.getCreatedBy())
+                .updatedAt(entity.getUpdatedAt())
+                .updatedBy(entity.getUpdatedBy())
                 .build();
     }
 }
