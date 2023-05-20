@@ -2,6 +2,7 @@ package com.brownee.grabb.domain.boards.model.entity;
 
 import com.brownee.grabb.common.enums.CommonEnum;
 import com.brownee.grabb.common.model.BaseTimeEntity;
+import com.brownee.grabb.domain.boards.model.Board;
 import com.brownee.grabb.domain.cards.model.entity.CardListEntity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -57,12 +58,28 @@ public class BoardEntity extends BaseTimeEntity {
     List<CardListEntity> cardLists = new ArrayList<>();
 
     @Builder
-    public BoardEntity(BigInteger id, String title, CommonEnum.BoardVisibility visibility, CommonEnum.BoardStatus status, List<CardListEntity> cardLists) {
+    public BoardEntity(BigInteger id, String title, CommonEnum.BoardVisibility visibility, CommonEnum.BoardStatus status, String createdBy, String updatedBy, List<CardListEntity> cardLists) {
         this.id = id;
         this.title = title;
         this.visibility = visibility;
         this.status = status;
+        this.createdBy = createdBy;
+        this.updatedBy = updatedBy;
         this.cardLists = cardLists;
+    }
+
+
+    public static Board toDomain(BoardEntity entity) {
+        return Board.builder()
+                .id(entity.getId())
+                .title(entity.getTitle())
+                .status(entity.getStatus())
+                .visibility(entity.getVisibility())
+                .createdBy(entity.getCreatedBy())
+                .createdAt(entity.getCreatedAt())
+                .updatedBy(entity.getUpdatedBy())
+                .updatedAt(entity.getUpdatedAt())
+                .build();
     }
 
 }
