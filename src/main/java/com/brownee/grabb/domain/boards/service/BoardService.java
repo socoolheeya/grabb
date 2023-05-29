@@ -6,7 +6,6 @@ import com.brownee.grabb.domain.boards.model.entity.BoardEntity;
 import com.brownee.grabb.domain.boards.model.http.BoardRequest;
 import com.brownee.grabb.domain.boards.repository.BoardRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

@@ -1,6 +1,6 @@
 package com.brownee.grabb.domain.workspace.service;
 
-import com.brownee.grabb.common.model.GrabbBadRequestException;
+import com.brownee.grabb.common.exception.GrabbBadRequestException;
 import com.brownee.grabb.domain.workspace.model.WorkSpace;
 import com.brownee.grabb.domain.workspace.model.entity.WorkSpaceEntity;
 import com.brownee.grabb.domain.workspace.model.http.WorkSpaceRequest;
