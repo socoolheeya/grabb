@@ -16,6 +16,7 @@ import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import lombok.experimental.FieldDefaults;
 
 import java.math.BigInteger;
@@ -44,6 +45,14 @@ public class TokenEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "member_id")
     MemberEntity member;
+
+    public void updateRevoked(boolean revoked) {
+        this.revoked = revoked;
+    }
+
+    public void updateExpired(boolean expired) {
+        this.expired = expired;
+    }
 
     @Builder(toBuilder = true)
     public TokenEntity(BigInteger id, String token, TokenType tokenType, boolean revoked, boolean expired, MemberEntity member) {

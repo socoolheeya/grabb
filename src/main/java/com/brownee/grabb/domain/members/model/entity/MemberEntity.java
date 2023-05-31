@@ -19,6 +19,7 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.AccessLevel;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.experimental.FieldDefaults;
@@ -106,5 +107,19 @@ public class MemberEntity extends BaseTimeEntity implements UserDetails {
     @Override
     public boolean isEnabled() {
         return true;
+    }
+
+    @Builder
+    public MemberEntity(BigInteger memberId, String password, String name, String email, RoleEnum role, String createdBy, String updatedBy, List<TokenEntity> tokenEntities, ActivityEntity activity, CardEntity card) {
+        this.memberId = memberId;
+        this.password = password;
+        this.name = name;
+        this.email = email;
+        this.role = role;
+        this.createdBy = createdBy;
+        this.updatedBy = updatedBy;
+        this.tokenEntities = tokenEntities;
+        this.activity = activity;
+        this.card = card;
     }
 }

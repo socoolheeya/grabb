@@ -13,9 +13,9 @@ public interface TokenRepository extends JpaRepository<TokenEntity, BigInteger> 
     @Query(value = """
       select t from TokenEntity t inner join MemberEntity u\s
       on t.member.memberId = u.memberId\s
-      where u.memberId = :id and (t.expired = false or t.revoked = false)\s
+      where u.memberId = :memberId and (t.expired = false or t.revoked = false)\s
       """)
-    List<TokenEntity> findAllValidTokenByUser(Integer id);
+    List<TokenEntity> findAllValidTokenByMember(BigInteger memberId);
 
     Optional<TokenEntity> findByToken(String token);
 }
